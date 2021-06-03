@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RollCalculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="./Styles/style.css" rel="stylesheet">
+</head>
+
+<body id='body' style="background-color:grey;">
+
+<div class="mainContainer shadow">
+
+    <div id="alertError">
+    </div>
+
+    <span class="saveButtons"> 
+        <button class="btn btn-danger mr-1" id='saveBtn' onclick="save()">Save</button>
+        <button class="btn btn-warning" id='loadBtn' onclick="load()">Load</button>
+    </span>
+    <div class="container-fluid characterCard d-flex flex-row align-items-center">
+        <div class="row " id="AddCharCard">
+            <div class="col-12 mt-1">
+                <div class="card mt-0">
+                    <div class="card-horizontal align-items-center">
+                        <div class="card-body pt-0 pb-0">
+
+                            <span class="card-title">Name </span><input type="text" class="" oninput="updateButtonStyle('#addCharBtn',true)" placeholder="Name of Character" id="inputCharName" maxlength = "20">
+                            <span class="card-title">CA </span><input type="number" class="numberCard" oninput="updateButtonStyle('#addCharBtn',true)" placeholder="(max: 99)" id="inputCharCA" max="99" min="0">
+                            <span class="card-title">Title </span><input type="text" class="" oninput="updateButtonStyle('#addCharBtn',true)" placeholder="(optional)" id="inputCharTitle" maxlength = "30">
+                            <span class="card-title">Picture(URL) </span><input type="text" class="" oninput="updateButtonStyle('#addCharBtn',true)"  placeholder="(optional)" id="inputCharPic">
+
+                        </div>                
+                        <button type="button" class="btn btn-danger mr-3 ml-2" id="addCharBtn" onclick="addInputChar(this)">Add Character</button>
+                    </div> 
+                </div>  
+            </div>
+        </div> 
+            <button class="btn btn-muted mt-1 ml-3" data-toggle="collapse" data-target="#AddAttackCard" >Change attacks</button>
+    </div>  
+
+<div class="container-fluid characterCard ml-0 d-flex flex-row align-items-center">
+    <div class="row collapse" id="AddAttackCard">
+        <!-- script fills this section -->
+    </div>
+    
+    </div>
+</div>
+
+</div>
+<br>
+
+<div id="CharactersSection">
+    <!-- script fills this section -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="changeStatsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">[[Character Name]]</h5>
+          <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody">
+           [[fail to load]]
+      </div>
+    </div>
+  </div>
+</div>
+<!---->
+<img id='btnReset' class="btn-light" onclick="Reload()" title="Reset" src="./Public/assets/round_settings_backup_restore_black_18dp.png">
+<!------------------------------------------------------->
+    <!--Jquery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+    <!--bootstrap-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!--scripts-->
+    <script src="./Public/userInputs.js"></script>
+    <script src="./Public/generateIndex.js"></script>
+    <script src="./Public/script.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,154 @@
+body{
+    background-color: rgb(121, 118, 118); margin: 0%;
+    background: url("../Public/assets/bg2.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;}
+
+.mainContainer{
+    background-color: rgba(109, 109, 109, 0.39);
+    padding: 10px;
+}
+
+.attackInputCard{
+    width: 700px;
+    max-width: 700px;
+    padding-left: 0;
+}
+
+.saveButtons{float: right;}
+
+.numberCard{
+    width: 90px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+  }
+
+.imgCharacter{
+    max-width: 50px;
+    min-width: 50px;
+}
+
+.cogIcon{
+    width: 20px;
+    cursor: pointer;
+    margin-bottom: 80px;
+}
+.modalStats{
+    max-width: 450px;
+}
+
+.modal-content{
+    width: 390px;
+}
+
+
+.shadow{
+    box-shadow: 0 0 25px black;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.characterCard{
+    width: fit-content;
+    margin: 0%;
+}
+
+.fixCardSize{
+    width: 600px;
+}
+
+.btn{
+    max-height: 50px;
+    margin: auto;
+}
+
+.typeOfHit{
+ text-decoration: black;
+}
+
+.card-body{padding-right: 10px;}
+
+.counterAttacks{
+    max-height: 50px;
+    max-width: 45px;
+    margin: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.disCard{
+    max-height: 100px;
+}
+
+.numberResult{
+    min-width: 35px;
+    font-size: 1.1rem;
+}
+
+.hit{
+    color: rgb(255, 255, 255);
+}
+
+.miss{
+    color: rgb(255, 255, 255);
+}
+
+.miss, .hit, .crithit, .critmiss {
+    padding: 5px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    font-weight:bold;
+}
+
+.crithit{
+    color: rgb(255, 255, 255);
+}
+
+.critmiss{
+    color: rgb(255, 255, 255);
+}
+
+.advantage{
+    background-color: rgba(71, 177, 71, 0.603);
+    color: green;
+}
+.disadvantage{
+    background-color: rgba(177, 71, 71, 0.514);
+    color: rgb(153, 15, 43);
+}
+
+.advantageFinalCard{ background-color: rgba(71, 177, 71, 0.397)}
+.disadvantageFinalCard{ background-color: rgba(255, 0, 0, 0.219)}
+
+#btnReset{
+    position: fixed;
+    top: 92%;
+    left: 96%;
+    border-radius: 100%;
+    box-shadow: 0px 5px 10px #49496157;
+    padding: 3px;
+    cursor: pointer;
+
+    width: auto;
+}
+
+/* ----------------------------- */
+
+@media only screen and (max-width: 970px) {
+    /* For mobile phones : Still working on it*/
+    input{margin-bottom: 5px;}
+    
+    .card-title{display: block;}
+    
+    .attackInputCard{
+        width: 100%
+    }
+  }
