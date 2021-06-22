@@ -3,7 +3,28 @@ let id = 0
 let CAlimit = 99
 let nOfAttackLimit = 50
 
-const party = []
+const generateId = () =>{
+    if (localStorage.getItem("id") === null){
+        currentId = id
+        id++
+        localStorage.setItem("id", JSON.stringify(id));
+    } else {
+        let loadID = localStorage.getItem("id")
+        currentId = JSON.parse(loadID)
+        id = JSON.parse(loadID)
+        id++
+        localStorage.setItem("id", JSON.stringify(id));
+    }
+    return currentId
+}
+
+const party = [{
+    name: "Björno",
+    title: "I'm an example!",
+    imgsrc: 'https://dbdzm869oupei.cloudfront.net/img/sticker/preview/36865.png',
+    CA: 15,
+    id: generateId()},
+]
  
 const attacks = [
    {
@@ -78,7 +99,6 @@ const addNewAttack = (x) => {
         renderAttackInputCard()
 
         let thisBtn = '#'+'inputAttackBtn'+x
-        
         updateButtonStyle(thisBtn, false)    
         updateButtonStyle('#loadBtn', true)
         updateButtonStyle('#saveBtn', true)
@@ -144,20 +164,7 @@ const load = () =>{
     {console.log("no save")}
 }
 
-const generateId = () =>{
-    if (localStorage.getItem("id") === null){
-        currentId = id
-        id++
-        localStorage.setItem("id", JSON.stringify(id));
-    } else {
-        let loadID = localStorage.getItem("id")
-        currentId = JSON.parse(loadID)
-        id = JSON.parse(loadID)
-        id++
-        localStorage.setItem("id", JSON.stringify(id));
-    }
-    return currentId
-}
+
 
 const popUpModal = (id) =>{
     let Char = (party.filter(char=>char.id==id))[0]
