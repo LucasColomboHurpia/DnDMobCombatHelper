@@ -79,7 +79,7 @@ const addInputChar = () => {
         updateButtonStyle('#saveBtn', true)
         updateButtonStyle('#loadBtn', true)
 
-    } else {errorLimitInput("CA")}
+    } else if (inputCA) {errorLimitInput("CA")}
 }
 
 const addNewAttack = (x) => {
