@@ -23,7 +23,7 @@ const party = [{
     title: "I'm an example!",
     imgsrc: 'https://dbdzm869oupei.cloudfront.net/img/sticker/preview/36865.png',
     CA: 15,
-    id: generateId()},
+    id: 999},
 ]
  
 const attacks = [
@@ -33,12 +33,12 @@ const attacks = [
         id: 0
     },
    {
-        attackName: "Arcane Bolt",
+        attackName: "Arcane Bolts",
         attack: 5,
         id: 1
     },
     {
-        attackName: "Lance",
+        attackName: "Spears",
         attack: 7,
         id: 2
     }    
@@ -52,7 +52,7 @@ const addInputChar = () => {
    let inputTitle =  $('#inputCharTitle').val()
    let inputPic =  $('#inputCharPic').val()
 
-    if(inputName && inputCA<=CAlimit){
+    if(inputCA && inputName && inputCA<=CAlimit){
 
         if (!(isValidURL(inputPic))){
             if(!(checkURL(inputPic))){inputPic = defaultPic}
@@ -139,29 +139,31 @@ const save = () =>{
 }
 
 const load = () =>{
-    if(localStorage.length != 0){  //fix error if one array is not defined
-        party.splice(0,party.length)
+    if(localStorage && localStorage.length !== 0){  
+
+        console.log(localStorage)
 
         let loadchar = JSON.parse(localStorage.getItem("party"));
-        if(loadchar.length > 0){
+        if(loadchar && loadchar.length > 0){
+            party.splice(0,party.length)
             loadchar.forEach(char => {
                 party.push(char)})
+                renderCharCards()
         }
 
         let loadAttacks = JSON.parse(localStorage.getItem("attacks"));
-        if(loadAttacks.length > 0){
+        if(loadAttacks && loadAttacks.length > 0){
             attacks.splice(0,attacks.length)
-
             loadAttacks.forEach(atk => {
                 attacks.push(atk)})
+                renderAttackInputCard()
+                renderCharCards()
         }
-        renderCharCards()
-        renderAttackInputCard()
         updateButtonStyle('#loadBtn', false)
         updateButtonStyle('#saveBtn', false)
     } 
-    if(localStorage.length == 0)
-    {console.log("no save")}
+    if(!localStorage && localStorage.length == 0)
+    {console.log("no save");}
 }
 
 

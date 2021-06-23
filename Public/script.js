@@ -100,15 +100,15 @@ function calculateAttacks (characterIdentifier) {
    if($(disBox3).is(":checked")){mod3 = "disadvantage"}
 
    //Rolls
-   if(nOfattacks1 > 0 && nOfattacks1 <= nOfAttackLimit){
+   if(nOfattacks1 && nOfattacks1 > 0 && nOfattacks1 <= nOfAttackLimit){
         showResults(hitCalculation(mod1,nOfattacks1,attack1,attack1Name), characterIdentifier, mod1, attack1Id)
     } else if (nOfattacks1>nOfAttackLimit){errorLimitInput("attack")}
 
-   if(nOfattacks2 > 0 && nOfattacks2 <= nOfAttackLimit){
+   if(nOfattacks2 && nOfattacks2 > 0 && nOfattacks2 <= nOfAttackLimit){
         showResults(hitCalculation(mod2,nOfattacks2,attack2,attack2Name), characterIdentifier, mod2, attack2Id)
     } else if (nOfattacks2>nOfAttackLimit){errorLimitInput("attack")}
 
-    if(nOfattacks3 > 0 && nOfattacks3 <= nOfAttackLimit){
+    if(nOfattacks3 && nOfattacks3 > 0 && nOfattacks3 <= nOfAttackLimit){
         showResults(hitCalculation(mod3,nOfattacks3,attack3,attack3Name), characterIdentifier, mod3, attack3Id)
     } else if (nOfattacks3>nOfAttackLimit){errorLimitInput("attack")}
 
