@@ -4,11 +4,14 @@ body{
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;}
+    background-size: cover;
+}
 
 .mainContainer{
     background-color: rgba(109, 109, 109, 0.39);
     padding: 10px;
+    position: relative; 
+    z-index: 2;
 }
 
 .attackInputCard{
@@ -128,6 +131,14 @@ img {
 .advantageFinalCard{ background-color: rgba(71, 177, 71, 0.397)}
 .disadvantageFinalCard{ background-color: rgba(255, 0, 0, 0.219)}
 
+.closeResults{
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: smaller;
+    font-family: 'Varela Round', verdana, sans-serif;
+}
+.closeResults:hover{color:red}
+
 #btnReset{
     position: fixed;
     top: 92%;
@@ -139,6 +150,47 @@ img {
 
     width: auto;
 }
+
+.log{
+    background-color: grey;
+    height: max-content;
+    max-height: 80vh;
+
+    display: inline-block;
+    width: 18vw;
+    max-width: max-content;
+    z-index: -1;
+
+    overflow: visible;
+
+    padding-left: 5px;
+    padding-bottom: 5px;
+
+    border-bottom-left-radius: 8px;
+
+}
+
+.containerLogs{
+    max-height: inherit;
+    overflow: visible;
+
+}
+
+#logList{
+    max-height: inherit;
+    overflow-y:auto;
+}
+
+.logBtn{
+    float:right;
+    z-index: -1;
+    font-family: 'Varela Round', verdana, sans-serif;
+}
+
+.logitem{
+    font-size: small;
+}
+
 
 /* ----------------------------- */
 

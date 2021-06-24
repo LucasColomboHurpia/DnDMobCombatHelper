@@ -42,9 +42,9 @@ function calculateAttacks (characterIdentifier) {
     character = currentChar
 
     let ID = character.id
-
-    console.log ("Target:",character.name)
-    console.log (character.CA+" CA")
+    
+    showLogs(("Target: "+character.name))
+    showLogs((character.CA+" CA"))
 
     //set attacks
     let attack1 = attacks[0].attack
@@ -121,8 +121,8 @@ const hitCalculation = (attackMod,nOfAttacks,attackBonus,attackName) => {
 
     let results = []
 
-    console.log('checking modifier:', attackMod)
-    console.log('calculating', nOfAttacks, attackName,'Atacks')
+    showLogs(('Checking modifier: '+ attackMod))
+    showLogs(('Calculating '+ nOfAttacks + ' ' + attackName +' Attacks'))
 
     for(i=0;i<nOfAttacks;i++){ 
         if (attackMod == "none") {
@@ -150,14 +150,14 @@ const hitCalculation = (attackMod,nOfAttacks,attackBonus,attackName) => {
                     if(roll>=roll2){relevantRoll=roll}else{relevantRoll=roll2}
                     results.push(relevantRoll);
                 }
-            } reportRolls(roll, attackBonus);reportRolls(roll2, attackBonus);
+            }  showLogs("- - -"); reportRolls(roll, attackBonus);reportRolls(roll2, attackBonus);
         }
 
         if (attackMod == "disadvantage") {
             console.log('- - -');
             let roll = roll20();
             let roll2 = roll20();
-            reportRolls(roll, attackBonus);reportRolls(roll2, attackBonus);
+            showLogs("- - -");  reportRolls(roll, attackBonus);reportRolls(roll2, attackBonus);
             if (roll == 1 || roll2 == 1) {
                 results.push("critMiss");
             } else {
@@ -171,7 +171,6 @@ const hitCalculation = (attackMod,nOfAttacks,attackBonus,attackName) => {
         }
 
      }
-    console.log(results)   
     return results
 }
 
@@ -193,26 +192,37 @@ const showResults = (results, ID, mod, atkID) => {
 
     updateVisibleWindows(cardId)
 
+    let hits = 0
+    let misses = 0
     results.forEach((result) => {
-            if(result == 'critHit'){resultsToShow += "<span class='crithit btn btn-success'>CRIT</span>"}           
-            if(result == 'critMiss'){resultsToShow += "<span class='critmiss btn btn-danger'>CRIT</span>"}
+            if(result == 'critHit'){resultsToShow += "<span class='crithit btn btn-success'>CRIT</span>"; hits++}           
+            if(result == 'critMiss'){resultsToShow += "<span class='critmiss btn btn-danger'>CRIT</span>"; misses++}
             if(result != 'critHit' && result != 'critMiss'){
                     let didItHit = checkCA(result, attackBonus)
-                    if (didItHit == 0) {resultsToShow += "<span class='miss btn btn-danger numberResult'>"+result+"</span>"}
-                     else {resultsToShow += "<span class='hit btn btn-success numberResult'>"+result+"</span>"}
+                    if (didItHit == 0) {
+                        resultsToShow += "<span class='miss btn btn-danger numberResult'>"+result+"</span>"
+                        misses++
+                    } else {
+                         resultsToShow += "<span class='hit btn btn-success numberResult'>"+result+"</span>"
+                         hits++
+                        }
              }
         }
     ) 
+
     $(mainParent).append(
             `
         <div class="card mt-3 ml-3 shadow resultContainer" id="${cardId}">
-            <div class="card-body ${mod}FinalCard">
-                 <h4 class="card-title">${cardTitle} (+${attackBonus})</h4>
+            <span><div class="card-body ${mod}FinalCard pt-2"><span class="float-right closeResults" onclick='hideResults(${JSON.stringify(cardId)})'>X</span></span>
+                <h4 class="card-title">${cardTitle} (+${attackBonus})</h4> 
                  <p class="card-text">${resultsToShow}</p>
+                 <span> ${hits} hits ${misses} misses</span>
             </div>
         </div>
             `
           ) 
+          
+    showLogs(`${hits} hits ${misses} misses`)
 }
 
 const updateVisibleWindows = (cardId) => {
@@ -265,6 +275,32 @@ const errorLimitInput = (value) =>{
 }
 
 const reportRolls = (roll, mod) => {
-    console.log('result is '+ (roll+mod) +' ('+roll+'+'+mod+')')
+    let rolls = `
+    <span>
+       ${roll+mod} (<span class="font-weight-bold">[${roll}]</span> +${mod})
+    </span>
+    `
+    if(roll===20){
+    rolls = `
+        <span>
+           ${roll+mod} (<span class="font-weight-bold text-success">[${roll}]</span> +${mod})
+        </span>
+    `
+    }
+
+    if(roll===1){
+        rolls = `
+            <span>
+               ${roll+mod} (<span class="font-weight-bold text-danger">[${roll}]</span> +${mod})
+            </span>
+        `
+        }
+    
+
+    showLogs(rolls)
 }
 
+const hideResults = (id) =>{
+    let jId = '#'+id
+    $(jId).remove()
+}

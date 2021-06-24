@@ -3,6 +3,9 @@ let id = 0
 let CAlimit = 99
 let nOfAttackLimit = 50
 
+let defaultPic = "https://i.pinimg.com/736x/16/9c/a3/169ca37e784312385a142eda23ffe238.jpg"
+
+
 const generateId = () =>{
     if (localStorage.getItem("id") === null){
         currentId = id
@@ -43,8 +46,6 @@ const attacks = [
         id: 2
     }    
 ]
-
-let defaultPic = "https://i.pinimg.com/736x/16/9c/a3/169ca37e784312385a142eda23ffe238.jpg"
 
 const addInputChar = () => {
    let inputName =  $('#inputCharName').val()
