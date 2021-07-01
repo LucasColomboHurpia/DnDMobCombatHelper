@@ -137,7 +137,7 @@ img {
     font-size: smaller;
     font-family: 'Varela Round', verdana, sans-serif;
 }
-.closeResults:hover{color:red}
+.closeResults:hover{color:red;    transform: scale(1.5);}
 
 #btnReset{
     position: fixed;
@@ -194,7 +194,7 @@ img {
 
 /* ----------------------------- */
 
-@media only screen and (max-width: 970px) {
+@media only screen and (max-width: 995px) {
     /* For mobile phones : Still working on it*/
     input{margin-bottom: 5px;}
     
@@ -203,4 +203,11 @@ img {
     .attackInputCard{
         width: 100%
     }
+  }
+
+  @media only screen and (min-width: 971px) {
+    .inputAdjust{
+        width: 17%;
+    }
+    
   }
