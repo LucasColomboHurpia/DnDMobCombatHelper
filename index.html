@@ -10,6 +10,8 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link href="./Styles/style.css" rel="stylesheet">
+    <link href="./Styles/tooltip.css" rel="stylesheet">
+
 </head>
 
 <body id='body' style="background-color:grey;">
@@ -65,14 +67,17 @@
     </div>
 
     <div class="logBtn d-flex justify-content-left">
-        <button class='btn btn-info ' data-toggle='collapse' data-target="#logs" onclick="changeLogBtn()" id="showLogsBtn">LOGS</button>
+        <button class='btn btn-info ' data-toggle='collapse' data-target="#logs" onclick="changeLogBtn()"
+            id="showLogsBtn">LOGS</button>
 
         <div class="collapse " id="logs">
             <div class="log shadow">
                 <div class="container containerLogs p-0">
                     <ul class='list-group' id='logList'>
-                        <li class="list-group-item list-group-item-action list-group-item-secondary logitem">This is the log window</li>
-                        <li class="list-group-item list-group-item-action list-group-item-secondary logitem">Every roll will be recorded here</li>
+                        <li class="list-group-item list-group-item-action list-group-item-secondary logitem">This is the
+                            log window</li>
+                        <li class="list-group-item list-group-item-action list-group-item-secondary logitem">Every roll
+                            will be recorded here</li>
 
                     </ul>
                 </div>
@@ -86,8 +91,7 @@
         <!-- script fills this section -->
     </div>
 
-
-
+    <div class="mb-5"></div>
 
     <!-- Modal -->
     <div class="modal fade" id="changeStatsModal" tabindex="-1" role="dialog">
@@ -105,9 +109,12 @@
             </div>
         </div>
     </div>
+
+
     <!---->
     <img id='btnReset' class="btn-light" onclick="Reload()" title="Reset"
         src="./Public/assets/round_settings_backup_restore_black_18dp.png">
+
     <!------------------------------------------------------->
     <!--Jquery-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -115,9 +122,7 @@
         crossorigin="anonymous"></script>
 
     <!--bootstrap-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>

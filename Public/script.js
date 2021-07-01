@@ -195,15 +195,29 @@ const showResults = (results, ID, mod, atkID) => {
     let hits = 0
     let misses = 0
     results.forEach((result) => {
-            if(result == 'critHit'){resultsToShow += "<span class='crithit btn btn-success'>CRIT</span>"; hits++}           
-            if(result == 'critMiss'){resultsToShow += "<span class='critmiss btn btn-danger'>CRIT</span>"; misses++}
+            if(result == 'critHit'){resultsToShow += `<span class="crithit btn btn-success tooltipCSS">
+                                                         CRIT
+                                                        <span class="tooltiptextCSS">CRIT [20]+${attackBonus}</span>
+                                                       </span>`;
+                                     hits++}           
+            if(result == 'critMiss'){resultsToShow += `<span class="critmiss btn btn-danger tooltipCSS">
+                                                          CRIT
+                                                        <span class="tooltiptextCSS">CRIT [1]+${attackBonus}</span>
+                                                       </span>`; 
+                                     misses++}
             if(result != 'critHit' && result != 'critMiss'){
                     let didItHit = checkCA(result, attackBonus)
                     if (didItHit == 0) {
-                        resultsToShow += "<span class='miss btn btn-danger numberResult'>"+result+"</span>"
+                        resultsToShow += `<button class="miss btn btn-danger numberResult tooltipCSS">
+                                              ${result}
+                                            <span class="tooltiptextCSS">${result+attackBonus} [${result}]+${attackBonus}</span>
+                                          </button>`;
                         misses++
                     } else {
-                         resultsToShow += "<span class='hit btn btn-success numberResult'>"+result+"</span>"
+                         resultsToShow += `<button class="hit btn btn-success numberResult tooltipCSS">
+                                               ${result}
+                                            <span class="tooltiptextCSS">${result+attackBonus} [${result}]+${attackBonus}</span>
+                                           </button>`;
                          hits++
                         }
              }
