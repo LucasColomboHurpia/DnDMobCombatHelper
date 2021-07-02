@@ -51,8 +51,8 @@ const renderCharCards = () =>{
                                     <div class="d-flex flex-column align-items-center pb-3 ml-2">
                                         <small class="typeOfHit">${attacks[2].attackName} (+${attacks[2].attack})</small>
                                             <div>
-                                                <input type="checkbox" class="advantage" id="advantageBox${char.id}2" onclick="toggleCheck(this)">
-                                                <input type="checkbox" class="disadvantage mb-1" id="disadvantageBox${char.id}2" onclick="toggleCheck(this)">
+                                                <input type="checkbox" class="advantage" id="advantageBox${char.id}3" onclick="toggleCheck(this)">
+                                                <input type="checkbox" class="disadvantage mb-1" id="disadvantageBox${char.id}3" onclick="toggleCheck(this)">
                                             </div>
                                         <input type="number" max="30" min="0" class="counterAttacks" id="attack3${char.id}">   
                                         <small></small>
