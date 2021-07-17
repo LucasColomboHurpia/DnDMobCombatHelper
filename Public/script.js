@@ -288,6 +288,7 @@ const errorLimitInput = (value) =>{
     `)
 }
 
+//updates LOGS
 const reportRolls = (roll, mod) => {
     let rolls = `
     <span>
