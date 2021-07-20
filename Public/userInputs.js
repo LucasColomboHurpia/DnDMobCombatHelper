@@ -226,7 +226,8 @@ const deleteChar = (id) => {
 }
 
 
-////
+//// checks if URL works
+
 const checkURL = (string) =>{
         let url;
         
