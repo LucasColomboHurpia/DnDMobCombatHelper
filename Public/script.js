@@ -267,6 +267,8 @@ const warnRollModsStyle = (classClicked, element) =>{
     }
 }
 
+// shows error
+
 const errorLimitInput = (value) =>{
     let alertError = ""
 
