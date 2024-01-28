@@ -44,7 +44,7 @@ function calculateAttacks (characterIdentifier) {
     let ID = character.id
     
     showLogs(("Target: "+character.name))
-    showLogs((character.CA+" CA"))
+    showLogs((character.CA+" AC"))
 
     //set attacks
     let attack1 = attacks[0].attack
@@ -276,8 +276,8 @@ const errorLimitInput = (value) =>{
         alertError = "Can't calculate more than "+nOfAttackLimit+ " Attacks!"
     }
 
-    if(value == "CA"){
-        alertError = "Can't have more than "+CAlimit+" CA"
+    if(value == "AC"){
+        alertError = "Can't have more than "+CAlimit+" AC"
     }
 
     $('#alertError').html(`
